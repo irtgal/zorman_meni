@@ -14,6 +14,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import Emitter from 'tiny-emitter';
 Vue.prototype.$mitt = new Emitter();
 
+// AXIOS
 import axios from 'axios';
 axios.interceptors.request.use(function (config) {
     const token = localStorage.getItem('token');
@@ -22,6 +23,17 @@ axios.interceptors.request.use(function (config) {
     }
     return config;
 });
+axios.interceptors.response.use(
+    function (response) {
+        return response;
+    },
+    function (error) {
+        if (error.response.status === 401) {
+            router.push({ name: 'login' });
+        }
+        return Promise.reject(error);
+    }
+);
 Vue.prototype.$axios = axios;
 
 
