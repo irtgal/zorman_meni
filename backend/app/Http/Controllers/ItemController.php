@@ -7,31 +7,47 @@ use Illuminate\Support\Facades\Log;
 
 class ItemController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // all items
     public function index()
+    {
+        return Item::orderBy('updated_at', 'DESC')->with('category')->get();
+    }
+
+    // only active items
+    public function active()
     {
         return Item::orderBy('updated_at', 'DESC')->where('active', true)->get();
     }
     
+    // inactive items
     public function inactive()
     {
         return Item::where('active', false)->get();
     }
 
-    public function setActive(Request $request, $id)
+    public function setActive(Request $request)
     {
-        $existingItem = Item::findOrFail($id);
-        $existingItem->active = true;
-        $existingItem->save();
+        $ids = $request->ids;
+        foreach($ids as $id) {
+            $existingItem = Item::findOrFail($id);
+            $existingItem->active = true;
+            $existingItem->save();
+        }
         return 'Success';
     }
+    // will this work for query parameters?
+    // public function setActive(Request $request)
 
-
-
+    public function setInActive(Request $request)
+    {
+        $ids = $request->ids;
+        foreach($ids as $id) {
+            $existingItem = Item::findOrFail($id);
+            $existingItem->active = false;
+            $existingItem->save();
+        }
+        return 'Success';
+    }
 
 
     public function store(Request $request)
@@ -39,8 +55,9 @@ class ItemController extends Controller
         $newItem = new Item();
         $data = $request->all();
         $newItem->name = $data['name'];
-        $newItem->price = $data['price'];
+        $newItem->category_id = $data['categoryId'];
         $newItem->description = $data['description'];
+        $newItem->active = false;
         $newItem->save();
         return $newItem;
     }
@@ -86,16 +103,6 @@ class ItemController extends Controller
         $existingItem->delete();
         return "Uspešno izbrisano";
     }
-    public function remove($id)
-    {
-        $existingItem = Item::findOrFail($id);
-        $existingItem->active = false;
-        $existingItem->save();
-        return "Uspešno odstranjeno";
-    }
-
-
-
 
 }
 

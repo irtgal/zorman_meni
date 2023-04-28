@@ -1,71 +1,70 @@
 <template>
-    <div class="categories">
-        <h3 class="category">Malice</h3>
-            <div class="items text-white">
-                <list-item v-for="(item, index) in items"
-                 :item="item" :edit="false" :key="index" @refresh="getList" @removeitem="removeItem"/>
-            </div>
-        <div class="add-item-div text-center mt-3">
-            <b-icon-plus-circle-fill class="add-item-icon hover" @click="showAddItem=true"></b-icon-plus-circle-fill>
+    <div class="items text-white">
+      <div v-for="(category, index) in categories" :key="index">
+        <div class="category">
+            <h4 class="m-0">{{category.name}}</h4>
+            <small class="p-0">{{category.price}}€</small>
         </div>
-        <add-item v-if="showAddItem" @close="showAddItem=false" @refresh="getList"></add-item>
+        <list-item
+          v-for="(item, index) in category.items"
+          :item="item"
+          :edit="false"
+          :key="index"
+        />
+      </div>
     </div>
-</template>
-<script>
-import listItem from './listItem'
-import addItem from './addItem'
-export default {
-    components : {
-        listItem,
-        addItem
+  </template>
+  <script>
+  import listItem from "./listItem";
+  
+  export default {
+    components: {
+      listItem,
     },
-    data: function () {
-        return {
-            items: [],
-            showAddItem: false,
-        }
-    },
-    methods: {
-        getList() {
-            axios.get('/api/admin/items')
-            .then( response => {
-                this.items = [];
-                this.items = response.data;
-                console.log(this.items);
-                this.$forceUpdate();
-            })
-            .catch(error => {
-                console.log(error);
-            })
+    props: {
+      items: {
+        type: Array,
+        default: function () {
+          return [];
         },
-        removeItem(id) {
-            this.items = this.items.filter((e)=>e.id !== id );
-        },
+      },
     },
-    computed : {
-        halfData(data, which) {
-        }
+    computed: {
+      categories() {
+        const categories = {};
+  
+        this.items.forEach((item) => {
+          const category = item.category;
+  
+          if (!categories[category.id]) {
+            categories[category.id] = {
+              id: category.id,
+              name: category.name,
+              sort: category.sort,
+              price: category.price,
+              items: [],
+            };
+          }
+  
+          categories[category.id].items.push(item);
+        });
+  
+        return Object.values(categories).sort((a, b) => a.sort - b.sort);
+      },
     },
-    created() {
-        this.getList();
-    },
-}
-
-</script>
-<style scoped>
-.category {
-    color: white;
-    margin-left: 10px;
-}
-.categories {
-    margin: 0 5%;
-}
-.add-item-icon {
-    font-size: 40px;
-    color: #198754;
-}
-.add-item-icon:hover {
-    color: #146c43;
-}
-
-</style>
+  };
+  </script>
+  <style scoped>
+  .items {
+    width: 100%;
+  }
+  
+  .category {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 10px;
+    margin-top: 2rem;
+  }
+  </style>

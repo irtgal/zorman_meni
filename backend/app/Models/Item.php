@@ -7,6 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-    protected $guarded = 'id';
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'active',
+        'category_id',
+    ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    // make a price attribute that returns the price of the category
+    public function getPriceAttribute()
+    {
+        return $this->category->price;
+    }
 }

@@ -1,113 +1,121 @@
 <template>
     <div class="item">
-        <div class="info">
-            <a>{{item.name}}</a>
-            <a class="description"><small>{{item.description}}</small></a>
-            <a>{{ item.price }}</a>
+        <div class="item__info">
+            <div class="item__name">{{ item.name }}</div>
+            <div class="item__description">{{ item.description }}</div>
         </div>
-
-        <div v-if ="edit" class="tools">
-
-                <div class="plus" @click="setActive(item.id)">
-                    <b-icon-plus></b-icon-plus>
-                </div>
-                <div class="destroy" @click="destroy(item.id)">
-                    <b-icon-trash-fill></b-icon-trash-fill>
-                </div>
+        <div class="item__tools">
+            <div
+                class="item__add"
+                v-if="item.active == 0"
+                @click="setActive(item.id)"
+            >
+                <b-icon-plus></b-icon-plus>
+            </div>
+            <div class="item__remove" v-else @click="remove(item.id)" tool>
+                <b-icon-x></b-icon-x>
+            </div>
+            <div class="item__destroy" @click="destroy(item.id)">
+                <b-icon-trash-fill></b-icon-trash-fill>
+            </div>
         </div>
-
-        <div v-else class="tools">
-                <div class="remove" @click="remove(item.id)">
-                   <b-icon-x></b-icon-x>
-                </div>
-        </div>
-        
     </div>
 </template>
+
 <script>
+
 export default {
-    components : {
+    props: {
+        item: Object,
+        edit: Boolean
     },
-    props: ['item', 'edit'],
-    methods : {
+    methods: {
         remove(id) {
-            axios.post(`/api/admin/item/remove/${id}`)
-            .then( response => {
-                this.$emit("removeitem", id);
-            })
-            .catch(error => {
-                console.log(error);
-            })
+            this.$mitt.emit("setInActive", id);
         },
         setActive(id) {
-            axios.post(`/api/admin/item/set_active/${id}`)
-            .then( response => {
-                this.$emit("removeitem", id);
-            })
-            .catch(error => {
-                console.log(error);
-            })    
+            this.$mitt.emit("setActive", id);
         },
         destroy(id) {
-            if (confirm('Trajno izbrišem izbran izdelek?')) {
-                axios.delete(`/api/admin/item/${id}`)
-                .then( response=> {
-                    console.log(response.data);
-                    this.$emit('removeitem', id);
-                })
-                .catch(error => {
-                    console.log(error);
-                })
-            }
-
-        },
+            this.$mitt.emit("destroy", id);
+        }
     }
-}
+};
 </script>
+
 <style scoped>
 .item {
     color: white;
     display: flex;
-    flex: 1 1;
+    flex-direction: column;
     justify-content: space-between;
     margin: 10px;
+    padding: 10px;
     border: 1px solid white;
     border-radius: 10px;
     overflow: hidden;
+    transition: all 0.3s ease-in-out;
 }
-.info {
+
+.item__info {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 5px;
-}
-.tools {
-    display: flex;
-}
-.edit, .destroy {
     flex: 1;
-    padding: 8px 10px;
-    font-size: 12px;
+}
+
+.item__name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.item__description {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+.item__price {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.item__tools {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.item__add,
+.item__remove,
+.item__destroy {
+    font-size: 1.5em;
     display: flex;
     align-items: center;
-    border-left: 1px solid white;
-}
-.remove, .plus {
-    flex: 1;
-    padding: 5px 7px;
-    font-size: 17px;
-    display: flex;
-    align-items: center;
-    border-left: 1px solid white;
-}
-.remove, .destroy {
-    border-radius: 0 10px 10px 0;
-}
-.remove:hover, .destroy:hover, .plus:hover, .edit:hover {
-    cursor: pointer;
-    color: rgb(41,43,44);
+    justify-content: center;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid white;
     background-color: white;
+    color: #0c0d0d;
+    margin-right: 5px;
 }
-.description {
-    font-style: none;
+
+.item__remove:hover,
+.item__destroy:hover {
+    cursor: pointer;
+    color: #f44336;
+}
+.item__add:hover {
+    cursor: pointer;
+    color: #198754;
+}
+
+.item__destroy {
+    border: none;
+    background-color: transparent;
+    color: #f44336;
 }
 </style>
