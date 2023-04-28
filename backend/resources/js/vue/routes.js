@@ -4,15 +4,26 @@ import Admin from './views/Admin'
 import Client from './views/Client'
 import Login from './views/Login'
 
-
 Vue.use(VueRouter)
 
-
-export default new VueRouter({
-    base: process.env.BASE_URL,
-    routes: [
-        {path: '/admin', name:'admin', component: Admin},
-        {path: '/meni', name:'client', component: Client},
-        {path: '/login', name:'login', component: Login},
-    ]
+const router = new VueRouter({
+  base: process.env.BASE_URL,
+  routes: [
+    { path: '/admin', name: 'admin', component: Admin },
+    { path: '/meni', name: 'client', component: Client },
+    { path: '/login', name: 'login', component: Login },
+  ]
 })
+
+// global route guard
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = localStorage.getItem('token')
+  if (to.name !== 'login' && !isAuthenticated) {
+    // redirect to login page if not authenticated
+    next({ name: 'login' })
+  } else {
+    next()
+  }
+})
+
+export default router

@@ -22,13 +22,25 @@
         <div id="main-content">
             <div class="active-items">
                 <h2 class="h2 text-center text-white">Aktivni izdelki</h2>
-                <list-view v-if="activeItems.length" :items="activeItems" @refresh="getItems" />
-                <div v-else class="text-white text-center">Ni aktivnih izdelkov</div>
+                <list-view
+                    v-if="activeItems.length"
+                    :items="activeItems"
+                    @refresh="getItems"
+                />
+                <div v-else class="text-white text-center">
+                    Ni aktivnih izdelkov
+                </div>
             </div>
             <div class="inactive-items">
                 <h2 class="h2 text-center text-white">Neaktivni izdelki</h2>
-                <list-view v-if="inactiveItems.length" :items="inactiveItems" @refresh="getItems" />
-                <div v-else class="text-white text-center">Ni neaktivnih izdelkov</div>
+                <list-view
+                    v-if="inactiveItems.length"
+                    :items="inactiveItems"
+                    @refresh="getItems"
+                />
+                <div v-else class="text-white text-center">
+                    Ni neaktivnih izdelkov
+                </div>
             </div>
         </div>
     </div>
@@ -69,7 +81,7 @@ export default {
         setInActive(ids) {
             console.log("set inactive", ids);
             this.$axios
-                .post(`/api/admin/item/set_inactive/`, {ids})
+                .post(`/api/admin/item/set_inactive/`, { ids })
                 .then(response => {
                     this.getItems();
                 })
@@ -79,7 +91,7 @@ export default {
         },
         setActive(ids) {
             this.$axios
-                .post(`/api/admin/item/set_active/`, {ids})
+                .post(`/api/admin/item/set_active/`, { ids })
                 .then(response => {
                     this.getItems();
                 })
@@ -89,7 +101,7 @@ export default {
         },
         destroy(id) {
             if (confirm("Trajno izbrišem izbran izdelek?")) {
-                axios
+                this.$axios
                     .delete(`/api/admin/item/${id}`)
                     .then(response => {
                         this.getItems();
@@ -111,10 +123,16 @@ export default {
         this.getItems();
     },
     mounted() {
-        this.$mitt.on("setActive", (id) =>this.setActive([id]));
-        this.$mitt.on("setInActive", (id) => this.setInActive([id]));
+        this.$mitt.on("setActive", id => this.setActive([id]));
+        this.$mitt.on("setInActive", id => this.setInActive([id]));
         this.$mitt.on("destroy", this.destroy);
         this.$mitt.on("itemAdded", this.itemAdded);
+    },
+    beforeDestroy() {
+        this.$mitt.off("setActive", this.setActive);
+        this.$mitt.off("setInActive", this.setInActive);
+        this.$mitt.off("destroy", this.destroy);
+        this.$mitt.off("itemAdded", this.itemAdded);
     }
 };
 </script>
@@ -150,7 +168,8 @@ export default {
     background-color: rgba(70, 70, 70, 1);
 }
 
-.add-item-icon, .clear-active-icon {
+.add-item-icon,
+.clear-active-icon {
     font-size: 40px;
     color: #198754;
 }
@@ -166,10 +185,9 @@ export default {
     padding: 1em;
 }
 
-
 .h3 {
     font-size: 2.5rem;
-  }
+}
 @media only screen and (max-width: 730px) {
     #admin {
         padding: 0.5%;
