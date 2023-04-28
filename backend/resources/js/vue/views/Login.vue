@@ -25,7 +25,7 @@
     },
     methods: {
       login() {
-        alert(1);
+        console.log('Submitted login');
         this.$axios.post('/api/login', {
           email: this.email,
           password: this.password
@@ -35,7 +35,7 @@
           console.log({response});
           const token = response.data.token;
           localStorage.setItem('token', token);
-            this.$router.push('/admin');
+          this.$router.push('/admin');
         })
         .catch(error => {
           console.log(error);
