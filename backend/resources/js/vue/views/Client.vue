@@ -409,7 +409,12 @@
                             class="item-name"
                         >
                             {{ item.name.toUpperCase() }}
-                            <span v-if="item.description && item.description.length">&nbsp;({{ item.description }})</span>
+                            <span
+                                v-if="
+                                    item.description && item.description.length
+                                "
+                                >&nbsp;({{ item.description }})</span
+                            >
                             _
                             <span class="item-price">{{ category.price }}</span>
                         </p>
@@ -418,7 +423,9 @@
             </div>
             <div v-else>
                 <p class="item-name text-center text-light-green">
-                    Malice so na voljo od ponedeljka do sobote<br/> med 10. in 15. uro.</p>
+                    Malice so na voljo od ponedeljka do sobote<br />
+                    med 10. in 15. uro.
+                </p>
             </div>
         </div>
         <div id="footer">
