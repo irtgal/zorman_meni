@@ -174,6 +174,26 @@
   export default {
     name: 'Client',
     // Your component's properties and methods go here
+    data() {
+        return {
+            categories: []
+        }
+    },
+    mounted() {
+        this.getCategories();
+    },
+    methods: {
+        getCategories() {
+            this.$axios.get('/api/client/index')
+            .then(response => {
+                this.categories = response.data;
+                console.log(this.categories);   
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        }
+    }
   }
   </script>
   
@@ -196,8 +216,7 @@
     font-family: "BobbinBold";
     background-color: #292b2c;
     color: white;
-
-    padding: 0 25%;
+    padding: 50px 25%;
 
 }
 
@@ -440,7 +459,7 @@
 
 @media only screen and (max-width: 900px) {
     #wrapper {
-        padding: 0;
+        padding: 20px 0;
     }
     .nav-title {
         padding-top: 10px;
