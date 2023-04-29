@@ -556,7 +556,7 @@ export default {
 
 .category-title {
   margin: 0;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-family: "CollectEmAll";
 }
 
