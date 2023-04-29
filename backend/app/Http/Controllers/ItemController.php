@@ -3,10 +3,23 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Models\Category;
 use Illuminate\Support\Facades\Log;
 
 class ItemController extends Controller
 {
+
+    public function clientIndex()
+    {
+        $categories = Category::with('activeItems')->get();
+        // REMOVE CATEGORIES WITH NO ACTIVE ITEMS
+        $categories = $categories->filter(function ($category) {
+            return $category->activeItems->count() > 0;
+        });        
+        return $categories;
+    }
+
+
     // all items
     public function index()
     {

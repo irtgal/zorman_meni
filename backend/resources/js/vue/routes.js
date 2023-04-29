@@ -10,8 +10,9 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes: [
     { path: '/admin', name: 'admin', component: Admin },
-    { path: '/meni', name: 'client', component: Client },
     { path: '/login', name: 'login', component: Login },
+    { path: '/', name: 'client', component: Client},
+    { path: '*', redirect: '/' },
   ]
 })
 

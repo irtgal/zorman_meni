@@ -10,11 +10,16 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'name', 'description', 'price'
     ];
 
     public function items()
     {
         return $this->hasMany(Item::class);
+    }
+
+    public function activeItems()
+    {
+        return $this->hasMany(Item::class)->where('active', true);
     }
 }

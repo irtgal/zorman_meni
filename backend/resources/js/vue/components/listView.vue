@@ -31,23 +31,19 @@
     },
     computed: {
       categories() {
+        console.log(this.items)
         const categories = {};
   
         this.items.forEach((item) => {
           const category = item.category;
   
           if (!categories[category.id]) {
-            categories[category.id] = {
-              id: category.id,
-              name: category.name,
-              sort: category.sort,
-              price: category.price,
-              items: [],
-            };
+            categories[category.id] = { ...category, items: [] };
           }
   
           categories[category.id].items.push(item);
         });
+        console.log({categories});
   
         return Object.values(categories).sort((a, b) => a.sort - b.sort);
       },

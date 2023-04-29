@@ -40,6 +40,7 @@ Route::middleware('auth:api')->group(function () {
 
     // Categories
     Route::get('/admin/categories', [CategoryController::class, 'index']);
-
 });
+
+Route::get('/client/index', [ItemController::class, 'clientIndex']);
 
