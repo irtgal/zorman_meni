@@ -26,6 +26,8 @@ WORKDIR /var/www
 # Copy the composer.json and composer.lock files
 COPY composer.json composer.lock ./
 
+COPY webpack.mix.js ./
+
 # Install Laravel dependencies
 RUN composer install --no-scripts --no-dev --prefer-dist
 
