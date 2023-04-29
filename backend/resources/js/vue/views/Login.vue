@@ -31,7 +31,6 @@
           password: this.password
         })
         .then(response => {
-          console.log(response.data);
           console.log({response});
           const token = response.data.token;
           localStorage.setItem('token', token);
@@ -39,7 +38,7 @@
         })
         .catch(error => {
           console.log(error);
-          // handle error response here
+          alert(error.response.data.message);
         });
       }
     }

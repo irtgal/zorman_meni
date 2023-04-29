@@ -55,28 +55,67 @@
 export default {
   data: function () {
     return {
+      name: "",
+      description: "",
+      categoryId: "",
+      nameMissing: false,
+      priceMissing: false,
       categories: [],
     };
   },
+  mounted() {
+    this.getCategories();
+  },
   methods: {
     getCategories() {
-      axios
-        .get("/api/client/index")
+      this.$axios
+        .get("/api/admin/categories")
         .then((response) => {
           this.categories = response.data;
+          console.log("Categories: ", this.categories);
         })
         .catch((error) => {
           console.log(error);
         });
     },
-  },
-  
-  mounted() {
-    this.getCategories();
+    addItem() {
+      if (this.name.length === 0) {
+        this.nameMissing = true;
+        return;
+      } else {
+        this.nameMissing = false;
+      }
+      // if (this.price.length === 0) {
+      //     this.priceMissing = true;
+      //     return;
+      // } else {
+      //     this.priceMissing = false;
+      // }
+      const item = {
+        name: this.name,
+        categoryId: this.categoryId,
+        description: this.description,
+      };
+      this.$axios
+        .post("api/admin/item/store", item)
+        .then((response) => {
+          this.resetData();
+          this.emitClose();
+        })
+        .catch((error) => {
+          alert(error);
+        });
+    },
+    emitClose() {
+      this.$mitt.emit("itemAdded");
+    },
+    resetData() {
+      this.name = "";
+      this.description = "";
+    },
   },
 };
 </script>
-
 
 <style scoped>
 #add-item {
