@@ -23,13 +23,14 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set the working directory
 WORKDIR /var/www
 
-# Copy the composer.json and composer.lock files
-COPY composer.json composer.lock ./
-
-COPY webpack.mix.js ./
+# Copy everything from the current directory to the Docker image
+COPY . .
 
 # Install Laravel dependencies
 RUN composer install --no-scripts --no-dev --prefer-dist
+
+# Copy the webpack.mix.js file
+COPY webpack.mix.js ./
 
 # Copy the package.json and package-lock.json files
 COPY package.json package-lock.json ./
@@ -43,9 +44,6 @@ RUN npm install
 
 # Build assets for production
 RUN npm run production
-
-# Copy the rest of the application code
-COPY . .
 
 # Set necessary permissions
 RUN chown -R www-data:www-data /var/www
