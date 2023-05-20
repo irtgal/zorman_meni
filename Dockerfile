@@ -1,57 +1,49 @@
-# Use the official PHP image as the base image
 FROM php:8.0-fpm
 
-# Install system dependencies
+# Install dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
     libpng-dev \
-    libjpeg-dev \
+    libjpeg62-turbo-dev \
     libfreetype6-dev \
-    libzip-dev \
+    locales \
+    zip \
+    jpegoptim optipng pngquant gifsicle \
+    vim \
     unzip \
     git \
+    libzip-dev \
+    libonig-dev \
     curl
 
-# Install PHP extensions
-RUN docker-php-ext-install pdo_mysql zip exif pcntl
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+# Clear cache
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Install extensions
+RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
+RUN docker-php-ext-configure gd --with-jpeg=/usr/include/ --with-freetype=/usr/include/
 RUN docker-php-ext-install gd
 
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Set the working directory
-WORKDIR /var/www
-
-# Copy everything from the current directory to the Docker image
-COPY . .
-
-# Install Laravel dependencies
-RUN composer install --no-scripts --no-dev --prefer-dist
-
-# Copy the webpack.mix.js file
-COPY webpack.mix.js ./
-
-# Copy the package.json and package-lock.json files
-COPY package.json package-lock.json ./
-
-# Install Node.js
+# Install Node.js 14 and npm
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 
-# Install Vue.js dependencies
-RUN npm install
+# Get latest Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Build assets for production
-RUN npm run production
+# Set working directory
+WORKDIR /var/www
 
-# Set necessary permissions
-RUN chown -R www-data:www-data /var/www
-RUN chmod -R 775 /var/www/storage
-RUN chmod -R 775 /var/www/bootstrap/cache
+# Copy existing application directory contents
+COPY . /var/www
 
-# Expose the port the app runs on
-EXPOSE 9000
+# Install Composer Dependencies
+RUN composer install
 
-# Start the PHP-FPM server
-CMD ["php-fpm"]
+# Install Node Dependencies and compile assets
+RUN npm install &&npm run watch && npm run serve
+
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+
+EXPOSE 8000

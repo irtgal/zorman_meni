@@ -44,3 +44,7 @@ Route::middleware('auth:api')->group(function () {
 
 Route::get('/client/index', [ItemController::class, 'clientIndex']);
 
+Route::get('/{any}', function () {
+    return view('welcome');
+})->where('any', '.*');
+
