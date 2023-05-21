@@ -157,8 +157,12 @@
                     NEFILTRIRANO SVETLO (0.5L) _
                     <span class="item-price">2.90</span>
                 </p>
-                <p class="item-name">SMILE (0.33L) _ <span class="item-price">2.50</span></p>
-                <p class="item-name">HEINEKEN (0.4L)_ <span class="item-price">2.70</span></p>
+                <p class="item-name">
+                    SMILE (0.33L) _ <span class="item-price">2.50</span>
+                </p>
+                <p class="item-name">
+                    HEINEKEN (0.4L)_ <span class="item-price">2.70</span>
+                </p>
                 <p class="item-name">
                     BREZALKOHOLNO PIVO (0.5L) _
                     <span class="item-price">2.20</span>
@@ -167,17 +171,30 @@
                     KOZEL SVETLO / TEMNO (0.5L) _
                     <span class="item-price">2.60</span>
                 </p>
-                <p class="item-name">STAROPRAMEN (0.5L) _ <span class="item-price">2.50</span></p>
+                <p class="item-name">
+                    STAROPRAMEN (0.5L) _ <span class="item-price">2.50</span>
+                </p>
             </div>
         </div>
 
         <div id="wines" class="section">
             <h2 class="section-title">VINA</h2>
-            <img alt="wine" class="wines-img" src="images/wine-cut.png" width="150px"/>
+            <img
+                alt="wine"
+                class="wines-img"
+                src="images/wine-cut.png"
+                width="150px"
+            />
             <div class="section-content">
-                <p class="item-name">LISJAK BELO (0.1L) _ <span class="item-price">1.10</span></p>
-                <p class="item-name">HALOŽAN (0.1L) _ <span class="item-price">1.20</span></p>
-                <p class="item-name">CVIČEK (0.1L) _ <span class="item-price">1.10</span></p>
+                <p class="item-name">
+                    LISJAK BELO (0.1L) _ <span class="item-price">1.10</span>
+                </p>
+                <p class="item-name">
+                    HALOŽAN (0.1L) _ <span class="item-price">1.20</span>
+                </p>
+                <p class="item-name">
+                    CVIČEK (0.1L) _ <span class="item-price">1.10</span>
+                </p>
                 <p class="item-name">
                     CABERNET MERLOT (0.1L) _
                     <span class="item-price">1.10</span>
@@ -194,46 +211,93 @@
                 width="150px"
             />
             <div class="section-content">
-                <p class="item-name">CC (0.03L) _ <span class="item-price">2.60</span></p>
+                <p class="item-name">
+                    CC (0.03L) _ <span class="item-price">2.60</span>
+                </p>
                 <p class="item-name">
                     BALLANTINES (0.03l) _ <span class="item-price">2.60</span>
                 </p>
                 <p class="item-name">
                     JACK DANIELS (0.03L) _ <span class="item-price">2.80</span>
                 </p>
-                <p class="item-name">TEQUILA (0.03L) _ <span class="item-price">2.60</span></p>
-                <p class="item-name">STOCK (0.03L) _ <span class="item-price"> 2.20</span></p>
-                <p class="item-name">GIN (0.03L) _ <span class="item-price">2.20</span></p>
-                <p class="item-name">VODKA (0.03L) _ <span class="item-price">2.20</span></p>
-                <p class="item-name">RUM (0.03L) _ <span class="item-price">1.70</span></p>
-                <p class="item-name">BACARDI (0.03L) _ <span class="item-price">2.50</span></p>
-                <p class="item-name">VILJAMOVKA (0.03L) _ <span class="item-price">2.80</span></p>
-                <p class="item-name">CYNAR (0.03L) _ <span class="item-price">2.20</span></p>
+                <p class="item-name">
+                    TEQUILA (0.03L) _ <span class="item-price">2.60</span>
+                </p>
+                <p class="item-name">
+                    STOCK (0.03L) _ <span class="item-price"> 2.20</span>
+                </p>
+                <p class="item-name">
+                    GIN (0.03L) _ <span class="item-price">2.20</span>
+                </p>
+                <p class="item-name">
+                    VODKA (0.03L) _ <span class="item-price">2.20</span>
+                </p>
+                <p class="item-name">
+                    RUM (0.03L) _ <span class="item-price">1.70</span>
+                </p>
+                <p class="item-name">
+                    BACARDI (0.03L) _ <span class="item-price">2.50</span>
+                </p>
+                <p class="item-name">
+                    VILJAMOVKA (0.03L) _ <span class="item-price">2.80</span>
+                </p>
+                <p class="item-name">
+                    CYNAR (0.03L) _ <span class="item-price">2.20</span>
+                </p>
                 <p class="item-name">
                     JAGERMEISTER (0.03L) _ <span class="item-price">2.60</span>
                 </p>
-                <p class="item-name">UNDERBERG (0.02L) _ <span class="item-price">2.80</span></p>
-                <p class="item-name">BOROVNIČKA (0.03L) _ <span class="item-price">1.70</span></p>
-                <p class="item-name">JAMESON (0.03L) _ <span class="item-price">2.80</span></p>
-                <p class="item-name">ČRNA VODKA (0.03L) _ <span class="item-price">2.20</span></p>
-                <p class="item-name">LIMONCE (0.03L) _ <span class="item-price">1.80</span></p>
-                <p class="item-name">TRAVARICA (0.03L) _ <span class="item-price">2.00</span></p>
-                <p class="item-name">PELINKOVEC (0.03L) _ <span class="item-price">1.70</span></p>
-                <p class="item-name">SADJEVEC (0.03L) _ <span class="item-price">1.70</span></p>
+                <p class="item-name">
+                    UNDERBERG (0.02L) _ <span class="item-price">2.80</span>
+                </p>
+                <p class="item-name">
+                    BOROVNIČKA (0.03L) _ <span class="item-price">1.70</span>
+                </p>
+                <p class="item-name">
+                    JAMESON (0.03L) _ <span class="item-price">2.80</span>
+                </p>
+                <p class="item-name">
+                    ČRNA VODKA (0.03L) _ <span class="item-price">2.20</span>
+                </p>
+                <p class="item-name">
+                    LIMONCE (0.03L) _ <span class="item-price">1.80</span>
+                </p>
+                <p class="item-name">
+                    TRAVARICA (0.03L) _ <span class="item-price">2.00</span>
+                </p>
+                <p class="item-name">
+                    PELINKOVEC (0.03L) _ <span class="item-price">1.70</span>
+                </p>
+                <p class="item-name">
+                    SADJEVEC (0.03L) _ <span class="item-price">1.70</span>
+                </p>
             </div>
         </div>
 
         <div id="sale" class="section">
             <h2 class="section-title">AKCIJSKA PONUDBA</h2>
-            <img alt="ice-cream" class="sale-img" src="images/ice-cream.png" width="100px"/>
+            <img
+                alt="ice-cream"
+                class="sale-img"
+                src="images/ice-cream.png"
+                width="100px"
+            />
             <div class="section-content">
-                <p class="item-name">SLADOLED KEPICA _ <span class="item-price">1.40</span></p>
-                <p class="item-name">TOAST _ <span class="item-price">1.50</span></p>
-                <p class="item-name">DVA TOASTA _ <span class="item-price">2.50</span></p>
+                <p class="item-name">
+                    SLADOLED KEPICA _ <span class="item-price">1.40</span>
+                </p>
+                <p class="item-name">
+                    TOAST _ <span class="item-price">1.50</span>
+                </p>
+                <p class="item-name">
+                    DVA TOASTA _ <span class="item-price">2.50</span>
+                </p>
                 <p class="item-name">
                     SENDVIC S SUHO SALAMO _ <span class="item-price">3.50</span>
                 </p>
-                <p class="item-name">ZORMAN BURGER _ <span class="item-price">6.50</span></p>
+                <p class="item-name">
+                    ZORMAN BURGER _ <span class="item-price">6.50</span>
+                </p>
                 <p class="item-name">
                     ZORMAN BURGER S KROMPIRČKOM _
                     <span class="item-price">7.50</span>
@@ -258,7 +322,7 @@
                     <div class="category-content">
                         <p v-for="item in category.active_items" :key="item.id" class="item-name">
                             {{ item.name.toUpperCase() }}
-                            <span v-if="item.description && item.description.length"
+                            <span v-if="item.description && item.description.length" class="description"
                             >&nbsp;({{ item.description }})</span
                             >
                             _
@@ -269,7 +333,7 @@
             </div>
             <div v-else>
                 <p class="item-name text-center text-light-green">
-                    Malice so na voljo od ponedeljka do sobote<br/>
+                    Malice so na voljo od ponedeljka do sobote<br />
                     med 10. in 15. uro.
                 </p>
             </div>
@@ -287,21 +351,36 @@ export default {
     // Your component's properties and methods go here
     data() {
         return {
-            categories: {},
+            categories: {}
         };
     },
     computed: {
         shouldShowMeals() {
+            return true;
             const now = new Date();
             const dayOfWeek = now.getDay(); // 0 is Sunday, 1 is Monday, etc.
             const isSunday = dayOfWeek === 0;
-            const start = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 9, 30, 0);
-            const end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 15, 0, 0);
+            const start = new Date(
+                now.getFullYear(),
+                now.getMonth(),
+                now.getDate(),
+                9,
+                30,
+                0
+            );
+            const end = new Date(
+                now.getFullYear(),
+                now.getMonth(),
+                now.getDate(),
+                15,
+                0,
+                0
+            );
             const currentTime = now.getTime();
             const isBetweenHours =
                 currentTime >= start.getTime() && currentTime <= end.getTime();
             return !isSunday && isBetweenHours;
-        },
+        }
     },
     mounted() {
         this.getCategories();
@@ -310,15 +389,15 @@ export default {
         getCategories() {
             this.$axios
                 .get("/api/client/index")
-                .then((response) => {
+                .then(response => {
                     this.categories = response.data;
                     console.log(this.categories);
                 })
-                .catch((error) => {
+                .catch(error => {
                     console.log(error);
                 });
-        },
-    },
+        }
+    }
 };
 </script>
 
@@ -421,6 +500,10 @@ export default {
     font-size: 15px;
     font-family: "CollectEmAll";
     z-index: 50;
+}
+
+.item-name .description {
+    font-size: 0.8em;
 }
 
 #footer {
