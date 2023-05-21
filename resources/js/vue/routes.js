@@ -12,7 +12,8 @@ const router = new VueRouter({
     routes: [
         { path: '/admin', name: 'admin', component: Admin, meta: { requiresAuth: true } },
         { path: '/login', name: 'login', component: Login },
-        { path: '/', name: 'client', component: Client }
+        { path: '/', name: 'client', component: Client },
+        { path: '*', redirect: '/' }
     ]
 })
 

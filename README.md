@@ -49,10 +49,10 @@
     npm run watch
     ```
 
-3. Start the development server:
+3. Compile for production:
 
     ```
-    npm run serve
+    npm run production
     ```
 
 
