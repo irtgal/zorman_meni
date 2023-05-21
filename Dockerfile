@@ -42,7 +42,7 @@ COPY . /var/www
 RUN composer install
 
 # Install Node Dependencies and compile assets
-RUN npm install &&npm run watch && npm run serve
+RUN npm install && npm run dev
 
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
 

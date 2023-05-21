@@ -306,6 +306,7 @@ export default {
         });
     },
     shouldShowMeals() {
+        return true;
       const now = new Date();
       const dayOfWeek = now.getDay(); // 0 is Sunday, 1 is Monday, etc.
       const isSunday = dayOfWeek === 0;
