@@ -244,7 +244,7 @@
         <div id="meals" class="section">
             <h2 class="section-title">MALICE</h2>
             <img alt="meals" class="meals-img" src="images/meals-cut.png" width="180px"/>
-            <div v-if="shouldShowMeals()" class="section-content">
+            <div v-if="shouldShowMeals" class="section-content">
                 <p class="item-name text-center text-light-green">
                     10:00 - 15:00 <br/>
                     Malice se dnevno spreminjajo
@@ -287,8 +287,21 @@ export default {
     // Your component's properties and methods go here
     data() {
         return {
-            categories: [],
+            categories: {},
         };
+    },
+    computed: {
+        shouldShowMeals() {
+            const now = new Date();
+            const dayOfWeek = now.getDay(); // 0 is Sunday, 1 is Monday, etc.
+            const isSunday = dayOfWeek === 0;
+            const start = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 9, 30, 0);
+            const end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 15, 0, 0);
+            const currentTime = now.getTime();
+            const isBetweenHours =
+                currentTime >= start.getTime() && currentTime <= end.getTime();
+            return !isSunday && isBetweenHours;
+        },
     },
     mounted() {
         this.getCategories();
@@ -304,19 +317,6 @@ export default {
                 .catch((error) => {
                     console.log(error);
                 });
-        },
-        shouldShowMeals() {
-            return true;
-            if (this.categories.length === 0) return false;
-            const now = new Date();
-            const dayOfWeek = now.getDay(); // 0 is Sunday, 1 is Monday, etc.
-            const isSunday = dayOfWeek === 0;
-            const start = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 9, 30, 0);
-            const end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 15, 0, 0);
-            const currentTime = now.getTime();
-            const isBetweenHours =
-                currentTime >= start.getTime() && currentTime <= end.getTime();
-            return !isSunday && isBetweenHours;
         },
     },
 };
