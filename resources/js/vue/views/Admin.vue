@@ -43,6 +43,9 @@
                 </div>
             </div>
         </div>
+        <div class="col d-flex justify-content-center mt-5">
+            <p @click="logout()" class="text-secondary btn btn-link">Logout</p>
+        </div>
     </div>
 </template>
 <script>
@@ -117,6 +120,10 @@ export default {
         itemAdded() {
             this.getItems();
             this.showAddItem = false;
+        },
+        logout() {
+            localStorage.removeItem("token");
+            this.$router.push({ name: "login" });
         }
     },
     created() {

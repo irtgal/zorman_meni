@@ -1,5 +1,5 @@
 <template>
-    <div class="item">
+    <div class="item" @click="toggleActive()">
         <div class="item__info">
             <div class="item__name">{{ item.name }}</div>
             <div class="item__description">{{ item.description }}</div>
@@ -38,6 +38,13 @@ export default {
         },
         destroy(id) {
             this.$mitt.emit("destroy", id);
+        },
+        toggleActive() {
+            if (this.item.active == 0) {
+                this.setActive(this.item.id);
+            } else {
+                this.remove(this.item.id);
+            }
         }
     }
 };
@@ -55,6 +62,7 @@ export default {
     border-radius: 10px;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .item__info {
