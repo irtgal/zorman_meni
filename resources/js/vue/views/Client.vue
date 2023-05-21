@@ -1,6 +1,6 @@
 <template>
     <div id="wrapper">
-        <h1 class="text-center">Gostilna zorman</h1>
+        <h1 class="text-center main-title">Gostilna zorman</h1>
         <h2 class="text-center">CENIK</h2>
 
         <div id="menu">
@@ -340,6 +340,10 @@ export default {
     background-color: #292b2c;
     color: white;
     padding: 50px 25%;
+}
+
+.main-title {
+    font-size: 3.5em;
 }
 
 .nav-bar {
