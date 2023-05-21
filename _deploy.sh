@@ -15,6 +15,10 @@ DEPLOYMENT_NAME="your-deployment-name"
 # Build the Docker image locally
 #docker-compose build
 
+# Login to gcp as Service Account
+docker login -u _json_key -p "$(cat /Users/easybigi/Documents/zormanmeniproject-091ce8436f76.json)" https://gcr.io
+
+
 # Authenticate Docker with GCR
 gcloud auth configure-docker
 
