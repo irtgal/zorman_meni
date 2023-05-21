@@ -38,7 +38,7 @@ class CategoryItemSeeder extends Seeder
                     break;
                 }
 
-                Item::update([
+                Item::create([
                     'name' => $items[$index],
                     'description' => 'Description for ' . $items[$index],
                     'active' => true,
