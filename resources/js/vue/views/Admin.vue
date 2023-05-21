@@ -1,7 +1,7 @@
 <template>
     <div id="admin">
         <div id="heading">
-            <img class="text-center mt-3" />
+            <img class="text-center mt-3"/>
             <h2 class="h2 text-center text-white">MALICE</h2>
         </div>
         <div class="toolbar">
@@ -16,7 +16,7 @@
                     class="add-item-icon hover"
                     @click="showAddItem = true"
                 ></b-icon-plus-circle-fill>
-                <add-item v-show="showAddItem" @close="showAddItem = false" />
+                <add-item v-show="showAddItem" @close="showAddItem = false"/>
             </div>
         </div>
         <div id="main-content">
@@ -44,19 +44,20 @@
             </div>
         </div>
         <div class="col d-flex justify-content-center mt-5">
-            <p @click="logout()" class="text-secondary btn btn-link">Logout</p>
+            <p class="text-secondary btn btn-link" @click="logout()">Logout</p>
         </div>
     </div>
 </template>
 <script>
 import ListView from "../components/listView";
 import AddItem from "../components/addItem";
+
 export default {
     components: {
         ListView,
         AddItem
     },
-    data: function() {
+    data: function () {
         return {
             items: [],
             showAddItem: false
@@ -84,7 +85,7 @@ export default {
         setInActive(ids) {
             console.log("set inactive", ids);
             this.$axios
-                .post(`/api/admin/item/set_inactive/`, { ids })
+                .post(`/api/admin/item/set_inactive/`, {ids})
                 .then(response => {
                     this.getItems();
                 })
@@ -94,7 +95,7 @@ export default {
         },
         setActive(ids) {
             this.$axios
-                .post(`/api/admin/item/set_active/`, { ids })
+                .post(`/api/admin/item/set_active/`, {ids})
                 .then(response => {
                     this.getItems();
                 })
@@ -123,7 +124,7 @@ export default {
         },
         logout() {
             localStorage.removeItem("token");
-            this.$router.push({ name: "login" });
+            this.$router.push({name: "login"});
         }
     },
     created() {
@@ -149,22 +150,27 @@ export default {
     min-height: 100vh;
     padding: 1em 5em;
 }
+
 #heading {
     margin-bottom: 3em;
 }
+
 .h2 {
     font-size: 200px;
 }
+
 #main-content {
     display: flex;
     flex-direction: row;
     width: 100%;
     gap: 10%;
 }
+
 .active-items,
 .inactive-items {
     flex: 1;
     padding: 1em;
+    height: min-content;
 }
 
 .active-items {
@@ -180,6 +186,7 @@ export default {
     font-size: 40px;
     color: #198754;
 }
+
 .add-item-icon:hover {
     color: #146c43;
 }
@@ -195,13 +202,16 @@ export default {
 .h3 {
     font-size: 2.5rem;
 }
+
 @media only screen and (max-width: 730px) {
     #admin {
         padding: 0.5%;
     }
+
     #main-content {
         flex-direction: column;
     }
+
     .active-items,
     .inactive-items {
         margin-bottom: 1em;

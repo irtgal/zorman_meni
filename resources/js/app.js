@@ -28,6 +28,7 @@ axios.interceptors.response.use(
         return response;
     },
     function (error) {
+        alert(error.response.data.message);
         if (error.response.status === 401) {
             router.push({ name: 'login' });
         }

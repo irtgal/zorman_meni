@@ -20,7 +20,8 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="category">Kategorija</label>
-                    <select id="category" v-model="categoryId" :class="{ missing: nameMissing }" class="form-control">
+                    <select id="category" v-model="categoryId" :class="{ missing: categoryMissing }"
+                            class="form-control">
                         <option
                             v-for="category in categories"
                             :key="category.id"
