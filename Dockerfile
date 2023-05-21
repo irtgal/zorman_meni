@@ -24,11 +24,6 @@ RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
 RUN docker-php-ext-configure gd --with-jpeg=/usr/include/ --with-freetype=/usr/include/
 RUN docker-php-ext-install gd
 
-
-# Install Node.js 14 and npm
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get install -y nodejs
-
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -41,8 +36,6 @@ COPY . /var/www
 # Install Composer Dependencies
 RUN composer install
 
-# Install Node Dependencies and compile assets
-RUN npm install && npm run dev
 
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
 
