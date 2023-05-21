@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: your-deployment-name
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: your-deployment-name
+  template:
+    metadata:
+      labels:
+        app: your-deployment-name
+    spec:
+      containers:
+        - name: your-deployment-name
+          image: gcr.io/zormanmeniproject/st-app:v1
+          ports:
+            - containerPort: 8080
