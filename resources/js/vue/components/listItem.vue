@@ -1,22 +1,20 @@
 <template>
     <div class="item" @click="toggleActive()">
         <div class="item__info">
-            <div class="item__name">{{ item.name }}</div>
-            <div class="item__description">{{ item.description }}</div>
-        </div>
-        <div class="item__tools">
-            <div
-                class="item__add"
-                v-if="item.active == 0"
-                @click="setActive(item.id)"
-            >
-                <b-icon-plus></b-icon-plus>
+            <div class="item__content">
+                <div class="item__name">{{ item.name }}</div>
+                <div class="item__description">{{ item.description }}</div>
             </div>
-            <div class="item__remove" v-else @click="remove(item.id)" tool>
-                <b-icon-x></b-icon-x>
-            </div>
-            <div class="item__destroy" @click="destroy(item.id)">
-                <b-icon-trash-fill></b-icon-trash-fill>
+            <div class="item__tools">
+                <div class="item__add" v-if="item.active === 0" @click="setActive(item.id)">
+                    <b-icon-plus></b-icon-plus>
+                </div>
+                <div class="item__remove" v-else @click="remove(item.id)">
+                    <b-icon-x></b-icon-x>
+                </div>
+                <div class="item__destroy" @click="destroy(item.id)">
+                    <b-icon-trash-fill></b-icon-trash-fill>
+                </div>
             </div>
         </div>
     </div>
@@ -50,12 +48,12 @@ export default {
 };
 </script>
 
+
 <style scoped>
 .item {
     color: white;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
     margin: 10px;
     padding: 10px;
     border: 1px solid white;
@@ -67,10 +65,16 @@ export default {
 
 .item__info {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.item__content {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 5px;
-    flex: 1;
+    padding-right: 10px;
 }
 
 .item__name {
@@ -84,15 +88,9 @@ export default {
     margin-bottom: 5px;
 }
 
-.item__price {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
 .item__tools {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
+    align-items: center;
 }
 
 .item__add,
@@ -109,7 +107,7 @@ export default {
     border: 1px solid white;
     background-color: white;
     color: #0c0d0d;
-    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .item__remove:hover,
@@ -117,6 +115,7 @@ export default {
     cursor: pointer;
     color: #f44336;
 }
+
 .item__add:hover {
     cursor: pointer;
     color: #198754;

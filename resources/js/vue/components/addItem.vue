@@ -132,8 +132,10 @@ export default {
     width: 90%;
     max-width: 500px;
     border: 1px solid white;
+    border-radius: 10px;
     font-size: 15px;
-
+    text-align: left;
+    padding: 15px;
 }
 
 .header {
@@ -144,10 +146,7 @@ export default {
     background-color: #198754;
     font-size: 15px;
     padding-top: 10px;
-}
-
-.add-new-div {
-    margin: 10px;
+    border-radius: inherit;
 }
 
 .buttons {
@@ -156,7 +155,7 @@ export default {
 }
 
 .missing {
-    border: 3px solid #d9534f;
+    border: 2px solid rgb(244,67,54);
 }
 
 @media only screen and (max-width: 767px) {

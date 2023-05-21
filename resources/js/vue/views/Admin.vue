@@ -163,7 +163,7 @@ export default {
     display: flex;
     flex-direction: row;
     width: 100%;
-    gap: 10%;
+    gap: 3em;
 }
 
 .active-items,
@@ -171,6 +171,7 @@ export default {
     flex: 1;
     padding: 1em;
     height: min-content;
+    border-radius: 10px;
 }
 
 .active-items {
