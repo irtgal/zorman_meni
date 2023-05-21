@@ -5,6 +5,14 @@ LARAVEL + VUE JS
 
 
 Configure .env file
+
+
+php artisan migrate
+php artisan db:seed
+php artisan key:generate
+
+
+
 php artisan serve
 
 
