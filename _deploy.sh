@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # Set your GCP project ID
 PROJECT_ID="zormanmeniproject"
