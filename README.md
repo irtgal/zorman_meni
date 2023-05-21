@@ -1,4 +1,5 @@
-# Docker Setup for Laravel + Vue.js
+# Setup
+### Laravel + Vue.js
 
 ## Backend
 
@@ -28,6 +29,12 @@
     php artisan serve
     ```
 
+## Admin Credentials
+
+- Email: admin@example.com
+- Password: password
+
+
 ## Frontend
 
 1. Install dependencies:
@@ -48,15 +55,18 @@
     npm run serve
     ```
 
+
+## Routes
+-   / <- Client side
+- /admin <- Admin side
+- /login <- Login page
+- /api <- API routes
+
 Make sure to run the backend and frontend commands in separate terminal windows or tabs.
 
 ## Docker Compose Configuration
 
-The provided `docker-compose.yml` file contains the configuration for setting up the Docker environment. It defines three services: `app`, `db`, and `nginx`. Please refer to the [docker-compose.yml](docker-compose.yml) file for details.
-
-## Dockerfile
-
-The provided `Dockerfile` describes the image used for the `app` service. Please refer to the [Dockerfile](Dockerfile) file for details.
+The provided `docker-compose.yml` and `Dockerfile` files contain the necessary configurations for setting up the Docker environment. Please refer to the respective files for details.
 
 ## Running the Docker Environment
 
@@ -70,15 +80,12 @@ To run the Docker environment:
     docker-compose up
     ```
 
-3. Wait for the containers to build and start.
+3. Access the Laravel application at [http://localhost:8080](http://localhost:8080).
 
-4. Access the Laravel application at [http://localhost:8080](http://localhost:8080).
-
-5. Make sure to stop the containers when you're done:
+4. When you're done, stop the containers by running:
 
     ```
     docker-compose down
     ```
 
 For more information about Docker and Docker Compose, please refer to their respective documentation.
-
