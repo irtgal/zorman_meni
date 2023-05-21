@@ -9,20 +9,27 @@ Vue.use(VueRouter)
 const router = new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
-    routes: [{path: '/admin', name: 'admin', component: Admin}, {
-        path: '/login',
-        name: 'login',
-        component: Login
-    }, {path: '/', name: 'client', component: Client},]
+    routes: [
+        { path: '/admin', name: 'admin', component: Admin, meta: { requiresAuth: true } },
+        { path: '/login', name: 'login', component: Login },
+        { path: '/', name: 'client', component: Client }
+    ]
 })
 
 // global route guard
 router.beforeEach((to, from, next) => {
     const isAuthenticated = localStorage.getItem('token')
-    if (to.name !== 'login' && !isAuthenticated) {
-        // redirect to login page if not authenticated
-        next({name: 'login'})
+
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        // Check if the route requires authentication
+        if (!isAuthenticated) {
+            // Redirect to the login page if not authenticated
+            next({ name: 'login' })
+        } else {
+            next()
+        }
     } else {
+        // Public route, proceed with navigation
         next()
     }
 })
