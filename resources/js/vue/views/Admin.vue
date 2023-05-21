@@ -152,7 +152,7 @@ export default {
 }
 
 #heading {
-    margin-bottom: 3em;
+    margin-bottom: 1em;
 }
 
 .h2 {
@@ -205,7 +205,7 @@ export default {
 
 @media only screen and (max-width: 730px) {
     #admin {
-        padding: 0.5%;
+        padding: 1em 20px;
     }
 
     #main-content {

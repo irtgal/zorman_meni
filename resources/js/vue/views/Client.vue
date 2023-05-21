@@ -346,47 +346,8 @@ export default {
     font-size: 3.5em;
 }
 
-.nav-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    background-color: #888e91;
-    height: 60px;
-    z-index: 50;
-}
-
-.nav-title {
-    flex: 1;
-    justify-self: center;
-    font-size: 30px;
-    color: #292b2c;
-    font-family: "BobbinBold";
-    margin-right: -55px;
-}
-
-#button-menu {
-    all: unset;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-}
-
 #button-menu img {
     width: 20px;
-}
-
-#main-title {
-    font-size: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#title {
 }
 
 /* MENU */
@@ -638,10 +599,6 @@ export default {
 @media only screen and (max-width: 900px) {
     #wrapper {
         padding: 20px 0;
-    }
-
-    .nav-title {
-        padding-top: 10px;
     }
 }
 
