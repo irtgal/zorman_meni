@@ -1,7 +1,8 @@
-#!/bin/bash -x
+#!/bin/bash -ex
 
 # Set your GCP project ID
 PROJECT_ID="zormanmeniproject"
+
 
 # Set the desired name for your Docker image
 IMAGE_NAME="st-app"
@@ -12,24 +13,42 @@ TAG="v1"
 # Set the desired name for your deployment and container
 DEPLOYMENT_NAME="your-deployment-name"
 
-# Build the Docker image locally
-#docker-compose build
+ZONE="europe-west3-a"
 
-# Login to gcp as Service Account
-docker login -u _json_key -p "$(cat /Users/easybigi/Documents/zormanmeniproject-091ce8436f76.json)" https://gcr.io
+KEY_FILE=/Users/easybigi/Documents/zormanmeniproject-07c0c6e8323f.json
 
 
-# Authenticate Docker with GCR
-gcloud auth configure-docker
+## KUBERNETES CLUSTER
+#gcloud container clusters create my-cluster --zone europe-west3-a
 
-# Tag the Docker image with the GCR repository URL
-docker tag $IMAGE_NAME gcr.io/$PROJECT_ID/$IMAGE_NAME:$TAG
+## Fetch the cluster credentials
+#gcloud container clusters get-credentials my-cluster --zone europe-west3-a
 
-# Push the Docker image to GCR
-docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:$TAG
+
+
+## Build the Docker image locally
+#docker build -t gcr.io/$PROJECT_ID/$IMAGE_NAME:$TAG .
+
+#docker buildx build --platform linux/amd64 -t gcr.io/$PROJECT_ID/$IMAGE_NAME:$TAG .
+
+
+## Activate service account
+#gcloud auth activate-service-account --key-file=/Users/easybigi/Documents/zormanmeniproject-07c0c6e8323f.json
+## Login to GCP as Service Account
+#docker login -u _json_key -p "$(cat /Users/easybigi/Documents/zormanmeniproject-07c0c6e8323f.json)" https://gcr.io
+#
+## Tag the Docker image with the GCR repository URL
+#docker tag $IMAGE_NAME gcr.io/$PROJECT_ID/$IMAGE_NAME:$TAG
+#
+#
+## Push the Docker image to GCR
+#docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:$TAG
+#
+## Configure Docker with GCR authentication
+#gcloud auth configure-docker
 
 # Create a deployment configuration file
-cat > deployment.yaml << EOF
+cat > deployment.yaml <<EOF
 apiVersion: apps/v1
 kind: Deployment
 metadata:
