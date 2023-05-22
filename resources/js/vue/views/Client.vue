@@ -5,19 +5,25 @@
 
         <div id="menu">
             <button id="menu-close">
-                <img alt="close-icon" src="images/close.png"/>
+                <img alt="close-icon" src="images/close.png" />
             </button>
             <h2 class="section-title text-orange link" data-url="alcohol-free">
                 BREZALKOHOLNE PIJAČE
             </h2>
-            <h2 class="section-title text-yellow link" data-url="warm-drinks">TOPLI NAPITKI</h2>
+            <h2 class="section-title text-yellow link" data-url="warm-drinks">
+                TOPLI NAPITKI
+            </h2>
             <h2 class="section-title text-green link" data-url="beer">PIVA</h2>
             <h2 class="section-title text-red link" data-url="wines">VINA</h2>
             <h2 class="section-title text-orange link" data-url="spirit-drinks">
                 ŽGANE PIJAČE
             </h2>
-            <h2 class="section-title text-blue link" data-url="sale">AKCIJSKA PONUDBA</h2>
-            <h2 class="section-title text-green link" data-url="meals">MALICE</h2>
+            <h2 class="section-title text-blue link" data-url="sale">
+                AKCIJSKA PONUDBA
+            </h2>
+            <h2 class="section-title text-green link" data-url="meals">
+                MALICE
+            </h2>
         </div>
 
         <div id="alcohol-free" class="section">
@@ -35,14 +41,22 @@
                 <p class="item-name">
                     POMARANČNI SOK (0.1L) _ <span class="item-price">1.00</span>
                 </p>
-                <p class="item-name">GOSTI SOK (0.1L) _ <span class="item-price">1.00</span></p>
+                <p class="item-name">
+                    GOSTI SOK (0.1L) _ <span class="item-price">1.00</span>
+                </p>
                 <p class="item-name">
                     FRUCTAL SOK STEKLENICA (0.2L) _
                     <span class="item-price">2.20</span>
                 </p>
-                <p class="item-name">LEDENI ČAJ (0.33L) _ <span class="item-price">2.20</span></p>
-                <p class="item-name">MULTISOLA (0.33L) _ <span class="item-price">2.20</span></p>
-                <p class="item-name">RADENSKA (0.1L) _ <span class="item-price">0.50</span></p>
+                <p class="item-name">
+                    LEDENI ČAJ (0.33L) _ <span class="item-price">2.20</span>
+                </p>
+                <p class="item-name">
+                    MULTISOLA (0.33L) _ <span class="item-price">2.20</span>
+                </p>
+                <p class="item-name">
+                    RADENSKA (0.1L) _ <span class="item-price">0.50</span>
+                </p>
                 <p class="item-name">
                     RADENSKA STEKLENICA (0.25L) _
                     <span class="item-price">1.80</span>
@@ -51,37 +65,68 @@
                     COCA COLA, PEPSI (0.25L) _
                     <span class="item-price">2.20</span>
                 </p>
-                <p class="item-name">COCA COLA (0.1L) _ <span class="item-price">1.00</span></p>
-                <p class="item-name">FANTA, ORA (0.25L) _ <span class="item-price">2.20</span></p>
-                <p class="item-name">FANTA (0.1L) _ <span class="item-price">1.00</span></p>
+                <p class="item-name">
+                    COCA COLA (0.1L) _ <span class="item-price">1.00</span>
+                </p>
+                <p class="item-name">
+                    FANTA, ORA (0.25L) _ <span class="item-price">2.20</span>
+                </p>
+                <p class="item-name">
+                    FANTA (0.1L) _ <span class="item-price">1.00</span>
+                </p>
                 <p class="item-name">
                     SCHWEPPES, TONIK (0.25L) _
                     <span class="item-price">2.20</span>
                 </p>
-                <p class="item-name">COCKTA (0.25L) _ <span class="item-price">2.20</span></p>
-                <p class="item-name">VODA (0.5L) _ <span class="item-price">1.50</span></p>
+                <p class="item-name">
+                    COCKTA (0.25L) _ <span class="item-price">2.20</span>
+                </p>
+                <p class="item-name">
+                    VODA (0.5L) _ <span class="item-price">1.50</span>
+                </p>
                 <p class="item-name">
                     VODA Z OKUSOM (0.5L) _ <span class="item-price">2.00</span>
                 </p>
-                <p class="item-name">LIMONADA (0.4L) _ <span class="item-price">2.20</span></p>
+                <p class="item-name">
+                    LIMONADA (0.4L) _ <span class="item-price">2.20</span>
+                </p>
                 <p class="item-name">
                     LIMONADA Z OKUSOM (0.4L) _
                     <span class="item-price">2.60</span>
                 </p>
-                <p class="item-name">CEDEVITA (0.5L) _ <span class="item-price">1.80</span></p>
-                <p class="item-name">RED BULL (0.25L) _ <span class="item-price">2.60</span></p>
+                <p class="item-name">
+                    CEDEVITA (0.5L) _ <span class="item-price">1.80</span>
+                </p>
+                <p class="item-name">
+                    RED BULL (0.25L) _ <span class="item-price">2.60</span>
+                </p>
             </div>
         </div>
 
         <div id="warm-drinks" class="section">
             <h2 class="section-title">TOPLI NAPITKI</h2>
-            <img alt="coffe" class="warm-drinks-img" src="images/coffe.png" width="200px"/>
+            <img
+                alt="coffe"
+                class="warm-drinks-img"
+                src="images/coffe.png"
+                width="200px"
+            />
             <div class="section-content">
-                <p class="item-name">KAVA _ <span class="item-price">1.40</span></p>
-                <p class="item-name">KAVA S SMETANO _ <span class="item-price">1.60</span></p>
-                <p class="item-name">KAVA Z MLEKOM _ <span class="item-price">1.50</span></p>
-                <p class="item-name">MACCHIATO _ <span class="item-price">1.50</span></p>
-                <p class="item-name">BREZKOFEINSKA KAVA _ <span class="item-price">1.60</span></p>
+                <p class="item-name">
+                    KAVA _ <span class="item-price">1.40</span>
+                </p>
+                <p class="item-name">
+                    KAVA S SMETANO _ <span class="item-price">1.60</span>
+                </p>
+                <p class="item-name">
+                    KAVA Z MLEKOM _ <span class="item-price">1.50</span>
+                </p>
+                <p class="item-name">
+                    MACCHIATO _ <span class="item-price">1.50</span>
+                </p>
+                <p class="item-name">
+                    BREZKOFEINSKA KAVA _ <span class="item-price">1.60</span>
+                </p>
                 <p class="item-name">
                     BEZKOFEINSKA KAVA S SMETANO _
                     <span class="item-price">1.80</span>
@@ -90,7 +135,9 @@
                     BREZKOFEINSKA KAVA Z MLEKOM _
                     <span class="item-price">1.70</span>
                 </p>
-                <p class="item-name">BELA KAVA _ <span class="item-price">1.90</span></p>
+                <p class="item-name">
+                    BELA KAVA _ <span class="item-price">1.90</span>
+                </p>
                 <p class="item-name">
                     BELA KAVA S SMETANO _ <span class="item-price">2.20</span>
                 </p>
@@ -98,23 +145,41 @@
                     BREZKOF. BELA KAVA S SMETANO _
                     <span class="item-price">2.40</span>
                 </p>
-                <p class="item-name">KAKAV _ <span class="item-price">1.80</span></p>
-                <p class="item-name">KAKAV S SMETANO _ <span class="item-price">2.00</span></p>
-                <p class="item-name">VROČA ČOKOLADA _ <span class="item-price">2.20</span></p>
+                <p class="item-name">
+                    KAKAV _ <span class="item-price">1.80</span>
+                </p>
+                <p class="item-name">
+                    KAKAV S SMETANO _ <span class="item-price">2.00</span>
+                </p>
+                <p class="item-name">
+                    VROČA ČOKOLADA _ <span class="item-price">2.20</span>
+                </p>
                 <p class="item-name">
                     VROČA ČOKOLADA S SMETANO _
                     <span class="item-price">2.40</span>
                 </p>
-                <p class="item-name">ČAJ _ <span class="item-price">1.50</span></p>
+                <p class="item-name">
+                    ČAJ _ <span class="item-price">1.50</span>
+                </p>
                 <p class="item-name">
                     ČAJ Z LIMONO / ČAJ Z MLEKOM _
                     <span class="item-price">1.60</span>
                 </p>
-                <p class="item-name">ČAJ Z MEDOM _ <span class="item-price">1.80</span></p>
-                <p class="item-name">ČAJ MED IN LIMONA _ <span class="item-price">1.90</span></p>
-                <p class="item-name">MLEKO (0.1L) _ <span class="item-price">0.70</span></p>
-                <p class="item-name">GROG _ <span class="item-price">4.00</span></p>
-                <p class="item-name">KUHANO VINO _ <span class="item-price">1.20</span></p>
+                <p class="item-name">
+                    ČAJ Z MEDOM _ <span class="item-price">1.80</span>
+                </p>
+                <p class="item-name">
+                    ČAJ MED IN LIMONA _ <span class="item-price">1.90</span>
+                </p>
+                <p class="item-name">
+                    MLEKO (0.1L) _ <span class="item-price">0.70</span>
+                </p>
+                <p class="item-name">
+                    GROG _ <span class="item-price">4.00</span>
+                </p>
+                <p class="item-name">
+                    KUHANO VINO _ <span class="item-price">1.20</span>
+                </p>
                 <p class="item-name text-center text-yellow">
                     PON. - PET. MED 8:00 - 10:00 IN SOB. MED 9:00 - 11:00
                 </p>
@@ -127,13 +192,22 @@
 
         <div id="beer" class="section">
             <h2 class="section-title">PIVA</h2>
-            <img alt="beer" class="beer-img" src="images/beer-cut.png" width="150px"/>
+            <img
+                alt="beer"
+                class="beer-img"
+                src="images/beer-cut.png"
+                width="150px"
+            />
             <div class="section-content">
                 <p class="item-name">
                     LAŠKO / UNION (0.5L) _ <span class="item-price">2.50</span>
                 </p>
-                <p class="item-name">RADLER (0.5L) _ <span class="item-price">2.50</span></p>
-                <p class="item-name">ČRNI RADLER (0.5L) _ <span class="item-price">2.50</span></p>
+                <p class="item-name">
+                    RADLER (0.5L) _ <span class="item-price">2.50</span>
+                </p>
+                <p class="item-name">
+                    ČRNI RADLER (0.5L) _ <span class="item-price">2.50</span>
+                </p>
                 <p class="item-name">
                     LAŠKO / UNION (0.33L) _ <span class="item-price">2.30</span>
                 </p>
@@ -307,23 +381,41 @@
 
         <div id="meals" class="section">
             <h2 class="section-title">MALICE</h2>
-            <img alt="meals" class="meals-img" src="images/meals-cut.png" width="180px"/>
+            <img
+                v-if="shouldShowMeals"
+                alt="meals"
+                class="meals-img"
+                src="images/meals.png"
+                width="250px"
+            />
             <div v-if="shouldShowMeals" class="section-content">
                 <p class="item-name text-center text-light-green">
-                    10:00 - 15:00 <br/>
+                    10:00 - 15:00 <br />
                     Malice se dnevno spreminjajo
                 </p>
                 <!-- ITEMS FROM BE -->
                 <!-- <p class="item-name">MALICA 1 _ <span class="item-price">6.00</span></p> -->
-                <div v-for="category in categories" :key="category.id" class="category">
+                <div
+                    v-for="category in categories"
+                    :key="category.id"
+                    class="category"
+                >
                     <p class="category-title text-light-green">
                         {{ category.name }}
                     </p>
                     <div class="category-content">
-                        <p v-for="item in category.active_items" :key="item.id" class="item-name">
+                        <p
+                            v-for="item in category.active_items"
+                            :key="item.id"
+                            class="item-name"
+                        >
                             {{ item.name.toUpperCase() }}
-                            <span v-if="item.description && item.description.length" class="description"
-                            >&nbsp;({{ item.description }})</span
+                            <span
+                                v-if="
+                                    item.description && item.description.length
+                                "
+                                class="description"
+                                >&nbsp;({{ item.description }})</span
                             >
                             _
                             <span class="item-price">{{ category.price }}</span>
@@ -348,7 +440,6 @@
 <script>
 export default {
     name: "Client",
-    // Your component's properties and methods go here
     data() {
         return {
             categories: {}
@@ -356,7 +447,6 @@ export default {
     },
     computed: {
         shouldShowMeals() {
-            return true;
             const now = new Date();
             const dayOfWeek = now.getDay(); // 0 is Sunday, 1 is Monday, etc.
             const isSunday = dayOfWeek === 0;
@@ -515,8 +605,13 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 30px;
     width: 100%;
+}
+
+#footer p {
+    margin: 0 0 5px;
 }
 
 #alcohol-free .section-title,
@@ -547,6 +642,10 @@ export default {
 #meals .section-title,
 #meals .item-price {
     color: #6f8a5c;
+}
+// TODO
+#meals {
+    min-height: 310px;
 }
 
 #sale .section-title,
@@ -599,8 +698,8 @@ export default {
 
 .meals-img {
     position: absolute;
-    right: 0px;
-    bottom: 0px;
+    top: 50px;
+    right: 0;
     opacity: 0.3;
 }
 
