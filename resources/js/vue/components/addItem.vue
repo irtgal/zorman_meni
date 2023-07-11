@@ -27,7 +27,7 @@
                             :key="category.id"
                             :value="category.id"
                         >
-                            {{ category.name }}
+                            {{ category.name }} - {{category.price}}€
                         </option>
                     </select>
                 </div>

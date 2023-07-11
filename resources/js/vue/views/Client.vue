@@ -400,7 +400,7 @@
                     :key="category.id"
                     class="category"
                 >
-                    <p class="category-title text-light-green">
+                    <p v-if="false" class="category-title text-light-green">
                         {{ category.name }}
                     </p>
                     <div class="category-content">
@@ -447,6 +447,7 @@ export default {
     },
     computed: {
         shouldShowMeals() {
+            return true;
             const now = new Date();
             const dayOfWeek = now.getDay(); // 0 is Sunday, 1 is Monday, etc.
             const isSunday = dayOfWeek === 0;
