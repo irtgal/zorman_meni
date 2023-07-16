@@ -18,6 +18,11 @@ class CategoryItemSeeder extends Seeder
             ['name' => 'Malica 3', 'price' => 7.5],
             ['name' => 'Malica 4', 'price' => 8],
             ['name' => 'Malica 5', 'price' => 8.5],
+            ['name' => 'Malica 6', 'price' => 9],
+            ['name' => 'Malica 7', 'price' => 9.5],
+            ['name' => 'Malica 8', 'price' => 10],
+            ['name' => 'Malica 9', 'price' => 10.5],
+            ['name' => 'Malica 10', 'price' => 11],
             ['name' => 'Juhe', 'price' => 1.6],
         ];
 
